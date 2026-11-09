@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="theme-color" content="#071a36">
+	<meta name="description" content="Cuenta atrás en tiempo real para la fecha elegida.">
+	<title>Cuenta atrás · Viernes 13</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="form.js" defer></script>
+</head>
+<body>
+	<main class="page-shell">
+		<header class="topbar">
+			<a class="brand" href="#inicio" aria-label="Viernes 13, inicio">
+				<span class="brand-mark" aria-hidden="true">13</span>
+				<span>CUENTA ATRÁS <span class="brand-dot">/</span> VIERNES 13</span>
+			</a>
+			<span class="live-indicator"><span class="live-dot"></span> EN TIEMPO REAL</span>
+		</header>
+
+		<section class="hero" id="inicio" aria-labelledby="page-title">
+			<div class="hero-copy">
+				<p class="eyebrow"><span class="eyebrow-line"></span> EL DÍA ELEGIDO</p>
+				<h1 id="page-title">Cada segundo<br>cuenta<span class="title-period">.</span></h1>
+				<p class="intro">La espera ya tiene hora. Mira cuánto falta para que llegue el momento.</p>
+			</div>
+
+			<div class="countdown-card" aria-live="polite" aria-atomic="true">
+				<div class="countdown-heading">
+					<div>
+						<p class="card-label">FALTA PARA EL MOMENTO</p>
+						<h2 id="event-date">Calculando fecha…</h2>
+					</div>
+					<span class="calendar-icon" aria-hidden="true">✳</span>
+				</div>
+				<div class="countdown" aria-label="Cuenta atrás">
+					<div class="time-unit"><span class="time-value" id="days">000</span><span class="time-label">DÍAS</span></div>
+					<span class="time-separator" aria-hidden="true">:</span>
+					<div class="time-unit"><span class="time-value" id="hours">00</span><span class="time-label">HORAS</span></div>
+					<span class="time-separator" aria-hidden="true">:</span>
+					<div class="time-unit"><span class="time-value" id="minutes">00</span><span class="time-label">MIN</span></div>
+					<span class="time-separator seconds-separator" aria-hidden="true">:</span>
+					<div class="time-unit seconds-unit"><span class="time-value accent-value" id="seconds">00</span><span class="time-label">SEG</span></div>
+				</div>
+				<div class="countdown-footer">
+					<span class="footer-clock" aria-hidden="true">◷</span>
+					<span>La hora de llegada será a las <strong id="chosen-time-label">17:15</strong></span>
+					<span class="timezone-note">hora local</span>
+				</div>
+			</div>
+
+			<div class="spark spark-one" aria-hidden="true">✳</div>
+			<div class="spark spark-two" aria-hidden="true">✦</div>
+		</section>
+
+		<section class="settings-grid" aria-label="Ajustes de la cuenta atrás">
+			<article class="settings-card time-card">
+				<div class="section-heading">
+					<div class="section-icon orange-icon" aria-hidden="true">◷</div>
+					<div>
+						<p class="card-label">AJUSTA EL MOMENTO</p>
+						<h2>Elige día y hora</h2>
+					</div>
+				</div>
+				<form id="time-form">
+					<div class="date-field">
+						<label for="event-date-input">¿Qué día?</label>
+						<input class="date-input" id="event-date-input" type="date" required>
+					</div>
+					<fieldset class="time-options">
+						<legend class="sr-only">Elige una hora para el día seleccionado</legend>
+						<label class="time-option">
+							<input type="radio" name="preset-time" value="17:15" checked>
+							<span class="radio-dot" aria-hidden="true"></span>
+							<span class="option-time">17:15</span>
+							<span class="option-caption">LA CLÁSICA</span>
+						</label>
+						<label class="time-option">
+							<input type="radio" name="preset-time" value="17:30">
+							<span class="radio-dot" aria-hidden="true"></span>
+							<span class="option-time">17:30</span>
+							<span class="option-caption">MEDIA HORA MÁS</span>
+						</label>
+						<label class="time-option custom-option" id="custom-option">
+							<input type="radio" name="preset-time" value="custom">
+							<span class="radio-dot" aria-hidden="true"></span>
+							<span class="option-time">Otra hora</span>
+							<input class="custom-time" id="custom-time" type="time" value="18:00" aria-label="Escribe otra hora">
+						</label>
+					</fieldset>
+					<button class="save-button" type="submit">Actualizar cuenta atrás <span aria-hidden="true">↗</span></button>
+				</form>
+			</article>
+		</section>
+
+		<footer class="page-footer">
+			<span>HECHO PARA ESPERAR JUNTOS <span class="footer-star">✳</span></span>
+			<span class="local-time-label">FECHA Y HORA SEGÚN TU DISPOSITIVO</span>
+		</footer>
+		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	</main>
+</body>
+</html>

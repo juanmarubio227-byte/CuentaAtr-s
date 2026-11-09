@@ -1,0 +1,4 @@
+.env
+telegram-config.json
+app-state.json
+node_modules/

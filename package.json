@@ -1,0 +1,13 @@
+{
+  "name": "cuenta-atras-viernes-13",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cuenta atrás con sincronización y avisos privados",
+  "scripts": {
+    "start": "node server.js",
+    "setup:telegram": "node setup-telegram.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
